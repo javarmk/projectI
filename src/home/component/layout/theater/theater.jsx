@@ -62,7 +62,7 @@ export default function Theater(){
             width:'100%',
             display: 'flex',
             flexWrap: 'wrap',
-            justifyContent: 'left',
+            justifyContent: 'space-around',
             padding: '10px 10px 10px 10px',
         }
     )
