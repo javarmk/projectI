@@ -13,14 +13,16 @@ function App() {
   return (
     <System>
       <div className="App">
-        <Router>
-          <Routes>
-            <Route exact path='/' element={<View/>}/>
-          </Routes>
-        </Router>
+        <View/>
       </div>
     </System> 
   );
 }
 
 export default App;
+
+{/* <Router>
+          <Routes>
+            <Route exact path='/' element={<View/>}/>
+          </Routes>
+        </Router> */}
