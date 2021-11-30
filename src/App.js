@@ -1,12 +1,25 @@
-import logo from './logo.svg';
-// import './App.css';
+import System from './home/system/system';
+
+import './App.css'
 
 import View from './home/view';
+
+
+
+import {BrowserRouter as Router ,Routes, Route} from 'react-router-dom';
+
+
 function App() {
   return (
-    <div className="App">
-      <View/>
-    </div>
+    <System>
+      <div className="App">
+        <Router>
+          <Routes>
+            <Route exact path='/home' element={<View/>}/>
+          </Routes>
+        </Router>
+      </div>
+    </System> 
   );
 }
 
