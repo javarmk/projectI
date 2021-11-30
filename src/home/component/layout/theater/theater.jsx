@@ -1,19 +1,61 @@
 import { useState, useEffect } from "react"
-
 import { useContext } from "react"
-
-import { windowSizeContext } from "../../../system/system"
 import TextCenter from "../../tools/textcenter"
 import Button from "../../elementevent/button"
+
+
+
+
+import { deviceContext } from "../../../system/system"
+
+
+
+
+
 export default function Theater(){
-
-    const windowSize=useContext(windowSizeContext)
-
+    //handle responsive
+    const device = useContext(deviceContext)
     
     useEffect(()=>{
-        
-    },windowSize)
-    
+        switch(device){
+            case 'mobile':
+                console.log('mobile')
+                var newStyle1={
+                    width:'100%',
+                    height:'270px',
+                    display:'grid',
+                    gridTemplateColumns: '200px auto',
+                    marginBottom: '20px',
+                }
+                
+                setStyle1(newStyle1)
+                break;
+            case 'tablet':
+                console.log('tablet')
+                var newStyle1={
+                    width:'auto',
+                    height:'300px',
+                    display:'grid',
+                    gridTemplateColumns: '240px auto',
+                    marginBottom: '50px',
+                }
+                
+                setStyle1(newStyle1)
+                break;
+            case 'laptop':
+                console.log('laptop')
+                var newStyle1={
+                    width:'320px',
+                    height:'220px',
+                    display:'grid',
+                    gridTemplateColumns: '160px auto',
+                    marginBottom: '50px',
+                }
+                
+                setStyle1(newStyle1)
+                break;
+        }
+    },[device])
 
     const [style,setStyle]=useState(
         {
@@ -22,33 +64,22 @@ export default function Theater(){
             flexWrap: 'wrap',
             justifyContent: 'left',
             padding: '10px 10px 10px 10px',
-            // backgroundColor: 'rgba(239, 239, 239, 1)'
-
         }
     )
     //responsive
     const [style1,setStyle1]=useState(
         {
-            width:'400px',
-            height: '266px',
-            borderRadius:'10px 10px 10px 10px',
-            marginLeft: '20px',
-            display:'grid',
-            gridTemplateColumns: '200px auto',
-            marginBottom: "50px"
+           
              
         }
     )
     const [style2,setStyle2]=useState(
-        {
-            objectFit: 'cover',
-            height:'100%',
+        {   objectFit: 'contain',
             width:'100%',
-            borderRadius:'10px' ,
+            height:'100%',
+            borderRadius:'5px' ,
         }
     )
-    
-
     return(
         <div style={{...style}}>
             <div style={style1}>
@@ -62,7 +93,7 @@ export default function Theater(){
                         Bản án từ địa ngục
                     </TextCenter>
                     <TextCenter style={{height:'50px'}}>
-                        Rateing: 9.5/10
+                        Rating: 9.5/10
                     </TextCenter>
                     <TextCenter style={{height:'50px'}}>
                         Thời lượng:'120p'
@@ -86,10 +117,10 @@ export default function Theater(){
                 />
                 <div>
                     <TextCenter style={{height:'50px'}}>
-                        Bản án từ địa ngục
+                        Arcane
                     </TextCenter>
                     <TextCenter style={{height:'50px'}}>
-                        Rateing: 9.5/10
+                        Rating: 9.5/10
                     </TextCenter>
                     <TextCenter style={{height:'50px'}}>
                         Thời lượng:'120p'
@@ -113,10 +144,10 @@ export default function Theater(){
                 />
                 <div>
                     <TextCenter style={{height:'50px'}}>
-                        Bản án từ địa ngục
+                        Reply1988
                     </TextCenter>
                     <TextCenter style={{height:'50px'}}>
-                        Rateing: 9.5/10
+                        Rating: 9.5/10
                     </TextCenter>
                     <TextCenter style={{height:'50px'}}>
                         Thời lượng:'120p'
@@ -139,10 +170,10 @@ export default function Theater(){
                 />
                  <div>
                     <TextCenter style={{height:'50px'}}>
-                        Bản án từ địa ngục
+                        Luyen mo
                     </TextCenter>
                     <TextCenter style={{height:'50px'}}>
-                        Rateing: 9.5/10
+                        Rating: 9.5/10
                     </TextCenter>
                     <TextCenter style={{height:'50px'}}>
                         Thời lượng:'120p'
