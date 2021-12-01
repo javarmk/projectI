@@ -15,6 +15,8 @@ import TextCenter from "./component/tools/textcenter"
 
 
 const HeaderThisPage=()=>{
+
+  //handle responsive
   const mobileHeader=()=>{
     return(
       <HeaderFixed> 
@@ -65,10 +67,7 @@ const HeaderThisPage=()=>{
     </HeaderFixed>
     )
   }
-  
-  const device=useContext(deviceContext)
-    
-  //handle responsive
+  const device=useContext(deviceContext) 
   useEffect(()=>{
       switch(device){
           case 'mobile':
@@ -80,6 +79,12 @@ const HeaderThisPage=()=>{
           case 'laptop':
             setRenderElement(laptopHeader())
             break;
+          case 'dektop':
+            setRenderElement(laptopHeader())
+            break;
+          case 'tv':
+            setRenderElement(laptopHeader())
+            break;
       }
   },[device])
 
@@ -87,40 +92,6 @@ const HeaderThisPage=()=>{
 
   return(
     renderElement
-    // <renderElement11/>
-    // <HeaderFixed > 
-    //       <div style={{width:'100%',display:'flex',justifyContent:'center'}}>
-    //         <Menu style={{display:'flex',height:'100%'}}>
-    //           <MenuItem keyValue={-1} style={{marginRight: '0px'}}>
-    //             Blog
-    //           </MenuItem>  
-    //           <MenuItem keyValue={0} style={{marginRight: '0px'}}>
-    //             Short
-    //           </MenuItem>  
-    //           <MenuItem keyValue={1} style={{marginRight: '0px'}}>
-    //             Theater
-    //           </MenuItem>
-    //           <MenuItem keyValue={2}>
-    //             Streaming
-    //           </MenuItem>
-    //           <div style={{height:'100%',textAlign:'center',padding:'2px 0px 0px 0px',margin:'0 50px 0 50px',fontSize:'34px',}}>
-    //           ChillwithME
-    //           </div>
-    //           <MenuItem keyValue={3} style={{marginRight: '0px'}}>
-    //             Communicate
-    //           </MenuItem>
-    //           <MenuItem keyValue={4}>
-    //             For Fun
-    //           </MenuItem>
-    //           <MenuItem keyValue={5}>
-    //             Group
-    //           </MenuItem>
-    //           {/* <MenuItem keyValue={6}>
-    //             Friend
-    //           </MenuItem> */}
-    //         </Menu>
-    //       </div>
-    // </HeaderFixed>
   )
 }
 
@@ -154,8 +125,8 @@ export default function View(){
   }
   return(
     <div style={{display:'grid',gridTemplateColumns:'max-content auto',width:'100%'}}>
-      <div style={{display:'grid',gridTemplateColumns:'max-content auto'}}> 
-        <div style={{width:'48px'}}>
+      <div style={{display:'grid',gridTemplateColumns:'max-content auto',borderRight:'2px solid rgba(228, 228, 228, 0.6)'}}> 
+        <div style={{width:'48px',borderRight:'1px solid rgba(228, 228, 228, 0.4)'}}>
             <Menu>
                 <MenuItem 
                   keyValue={1} 

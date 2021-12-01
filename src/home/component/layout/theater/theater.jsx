@@ -12,6 +12,10 @@ import { deviceContext } from "../../../system/system"
 
 
 
+
+
+
+
 export default function Theater(){
     //handle responsive
     const device = useContext(deviceContext)
@@ -21,26 +25,44 @@ export default function Theater(){
             case 'mobile':
                 console.log('mobile')
                 var newStyle1={
-                    width:'100%',
-                    height:'270px',
+                    width:'auto',
+                    height:'70vw',
                     display:'grid',
-                    gridTemplateColumns: '200px auto',
+                    gridTemplateColumns: '50vw auto',
                     marginBottom: '20px',
+                    backgroundColor:'rgba(243, 243, 243, 0.8)',
+                    borderRadius:'0 5px 5px 0',
                 }
                 
                 setStyle1(newStyle1)
+
+
+
+                var newStyle={...style}
+                newStyle.padding='10px 10px 10px 10px'
+                setStyle(newStyle)
                 break;
             case 'tablet':
                 console.log('tablet')
                 var newStyle1={
                     width:'auto',
-                    height:'300px',
+                    height:'70vw',
                     display:'grid',
-                    gridTemplateColumns: '240px auto',
+                    gridTemplateColumns: '50vw auto',
                     marginBottom: '50px',
+                    marginRight: '20px',
+                    backgroundColor:'rgba(243, 243, 243, 0.8)',
+                    borderRadius:'0 5px 5px 0',
+
                 }
                 
                 setStyle1(newStyle1)
+
+
+
+                var newStyle={...style}
+                newStyle.padding='10px 10px 10px 10px'
+                setStyle(newStyle)
                 break;
             case 'laptop':
                 console.log('laptop')
@@ -50,9 +72,32 @@ export default function Theater(){
                     display:'grid',
                     gridTemplateColumns: '160px auto',
                     marginBottom: '50px',
+                    backgroundColor:'rgba(243, 243, 243, 0.8)',
+                    borderRadius:'0 5px 5px 0',
+                }
+                setStyle1(newStyle1)
+
+                var newStyle={...style}
+                newStyle.padding='10px 10px 10px 100px'
+                setStyle(newStyle)
+            default:
+                console.log('laptop')
+                var newStyle1={
+                    width:'320px',
+                    height:'250px',
+                    display:'grid',
+                    marginRight:'20px',
+                    gridTemplateColumns: '160px auto',
+                    marginBottom: '50px',
+                    backgroundColor:'rgba(243, 243, 243, 0.8)',
+                    borderRadius:'0 5px 5px 0',
+
                 }
                 
                 setStyle1(newStyle1)
+                var newStyle={...style}
+                newStyle.padding='10px 10px 10px 100px'
+                setStyle(newStyle)
                 break;
         }
     },[device])
@@ -62,7 +107,7 @@ export default function Theater(){
             width:'100%',
             display: 'flex',
             flexWrap: 'wrap',
-            justifyContent: 'space-around',
+            justifyContent: 'left',
             padding: '10px 10px 10px 10px',
         }
     )
@@ -70,11 +115,11 @@ export default function Theater(){
     const [style1,setStyle1]=useState(
         {
            
-             
         }
     )
     const [style2,setStyle2]=useState(
-        {   objectFit: 'contain',
+        {   
+            // objectFit: 'scale-down',
             width:'100%',
             height:'100%',
             borderRadius:'5px' ,
@@ -102,7 +147,7 @@ export default function Theater(){
                         Số người đang chờ: 900
                     </TextCenter>
                     <TextCenter style={{height:'50px',cursor: 'pointer'}}>
-                        <Button style={{padding:'5px 10px 5px 10px'}}>
+                        <Button style={{padding:'5px 10px 5px 10px',backgroundColor:'rgba(121, 175, 251, 0.8)',transition: '0.05s'}}>
                             Vào rạp
                         </Button>
                     </TextCenter>
@@ -129,7 +174,7 @@ export default function Theater(){
                         Số người đang chờ: 900
                     </TextCenter>
                     <TextCenter style={{height:'50px',cursor: 'pointer'}}>
-                        <Button style={{padding:'5px 10px 5px 10px'}}>
+                        <Button style={{padding:'5px 10px 5px 10px',backgroundColor:'rgba(121, 175, 251, 0.8)'}}>
                             Vào rạp
                         </Button>
                     </TextCenter>
@@ -156,7 +201,7 @@ export default function Theater(){
                         Số người đang chờ: 900
                     </TextCenter>
                     <TextCenter style={{height:'50px',cursor: 'pointer'}}>
-                        <Button style={{padding:'5px 10px 5px 10px'}}>
+                        <Button style={{padding:'5px 10px 5px 10px',backgroundColor:'rgba(121, 175, 251, 0.8)'}}>
                             Vào rạp
                         </Button>
                     </TextCenter>
@@ -182,7 +227,7 @@ export default function Theater(){
                         Số người đang chờ: 900
                     </TextCenter>
                     <TextCenter style={{height:'50px',cursor: 'pointer'}}>
-                        <Button style={{padding:'5px 10px 5px 10px'}}>
+                        <Button style={{padding:'5px 10px 5px 10px',backgroundColor:'rgba(121, 175, 251, 0.8)'}}>
                             Vào rạp
                         </Button>
                     </TextCenter>

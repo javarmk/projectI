@@ -16,7 +16,7 @@ export default  function NotificationElement(props){
     return(
         <MenuItem  
             style={{display:'grid',gridTemplateColumns:'max-content max-content',...style}}
-            onHoverStyle={{backgroundColor: 'red'}}
+            onHoverStyle={{backgroundColor: 'rgba(255, 107, 114, 0.8)'}}
         >
             <div style={{width:'50px',height:'50px'}}>
                 <img 
