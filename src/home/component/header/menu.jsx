@@ -1,4 +1,4 @@
-import React,{ useState,useEffect} from "react";
+import React,{ useState,useEffect,useCallback} from "react";
 
 export default function Menu(properties){
     var props={...properties}
@@ -12,11 +12,12 @@ export default function Menu(properties){
     if(typeof props.style.justifyContent==='undefined'){
         props.style.justifyContent='left'
     }
-
+    
 
     // ----------------
-    const [childSelecting,setChildSelecting]=useState('1')
+    const [childSelecting,setChildSelecting]=useState(1)
     
+
     return(
         <div style={props.style}>
             {
@@ -31,11 +32,11 @@ export default function Menu(properties){
     )
 }
 
-export function SubMenu(properties){
+export function SubMenu(properties){    
     const [style,setStyle]=useState({})
     useEffect(()=>{
         var newStyle={}
-        if(! (typeof properties.style==='undefined')){
+        if((typeof properties.style!=='undefined')){
             // if != undefined then set newstyle
             newStyle={...properties.style}
         }
@@ -72,7 +73,7 @@ export function SubMenu(properties){
     const [onHoverStyle,setOnHoverStyle]=useState({}) // event
     useEffect(()=>{
         var newOnHoverStyle={}
-        if(!(typeof properties.onHoverStyle==='undefined')){
+        if((typeof properties.onHoverStyle!=='undefined')){
             newOnHoverStyle={...properties.onHoverStyle}
         }
         if(typeof newOnHoverStyle.backgroundColor==='undefined'){
@@ -86,7 +87,7 @@ export function SubMenu(properties){
     const [onClickedStyle,setOnClickedStyle]=useState({}) // event
     useEffect(()=>{
         var newOnClickedStyle={}
-        if(!(typeof properties.onClickedStyle=='undefined')){
+        if((typeof properties.onClickedStyle!=='undefined')){
             newOnClickedStyle=properties.onClickedStyle
         }
         
@@ -96,48 +97,48 @@ export function SubMenu(properties){
         setOnClickedStyle(newOnClickedStyle)
     },[])
 
-    const handleOnChangleChildSelecting=()=>{
+    const handleOnChangleChildSelecting=useCallback(()=>{
         if(properties.keyValue==properties.childSelecting){
             setClickedStyle(onClickedStyle)
         }else{
             setClickedStyle({})
         }
-    }
+    })
     useEffect(()=>{
         handleOnChangleChildSelecting();
 
     },[properties.childSelecting])
 
     //-------------------------- hover handle --------------------
-    const handleOnMouseEnter=()=>{
+    const handleOnMouseEnter=useCallback(()=>{
         //set style on Hover
         setHoverStyle(onHoverStyle)
-    }   
-    const handleOnMouseLeave=()=>{
+    })
+    const handleOnMouseLeave=useCallback(()=>{
         // set style on hover
         setHoverStyle({})
-    }
+    })
     
-    const handleOnClick=()=>{
+    const handleOnClick=useCallback(()=>{
         // do funtion pass from parent
-        if(!(typeof properties.onClickedFunction==='undefined')){
+        if((typeof properties.onClickedFunction!=='undefined')){
             properties.onClickedFunction();
         }
         // setChildren that parent is selecting
         properties.setChildSelecting(properties.keyValue)
         handleShowChild()
-    }
-    
+    })
+   
 
     const [childSelecting,setChildSelecting]=useState('1')
     const [showChild,setShowChild]=useState('none');
-    const handleShowChild=()=>{
+    const handleShowChild=useCallback(()=>{
         if(showChild=='none'){
             setShowChild('inherit')
         }else{
             setShowChild('none')
         }
-    }
+    })
     return(
         <div>
             <div
@@ -170,7 +171,7 @@ export function MenuItem(properties){
     
     useEffect(()=>{
         var newStyle={}
-        if(! (typeof properties.style==='undefined')){
+        if( (typeof properties.style!=='undefined')){
             // if != undefined then set newstyle
             newStyle={...properties.style}
         }
@@ -206,7 +207,7 @@ export function MenuItem(properties){
     const [onHoverStyle,setOnHoverStyle]=useState({}) // event
     useEffect(()=>{
         var newOnHoverStyle={}
-        if(!(typeof properties.onHoverStyle==='undefined')){
+        if((typeof properties.onHoverStyle!=='undefined')){
             newOnHoverStyle={...properties.onHoverStyle}
         }
         if(typeof newOnHoverStyle.backgroundColor==='undefined'){
@@ -214,6 +215,7 @@ export function MenuItem(properties){
         }
         
         setOnHoverStyle(newOnHoverStyle)
+
     },[])
     
     
@@ -221,7 +223,7 @@ export function MenuItem(properties){
     const [onClickedStyle,setOnClickedStyle]=useState({}) // event
     useEffect(()=>{
         var newOnClickedStyle={}
-        if(!(typeof properties.onClickedStyle=='undefined')){
+        if((typeof properties.onClickedStyle!=='undefined')){
             newOnClickedStyle=properties.onClickedStyle
         }
         
@@ -231,39 +233,39 @@ export function MenuItem(properties){
         setOnClickedStyle(newOnClickedStyle)
     },[])
 
-    const handleOnChangleChildSelecting=()=>{
+    const handleOnChangleChildSelecting=useCallback(()=>{
         if(properties.keyValue==properties.childSelecting){
             setClickedStyle(onClickedStyle)
         }else{
             setClickedStyle({})
         }
-    }
+    });
     useEffect(()=>{
         handleOnChangleChildSelecting();
-
     },[properties.childSelecting])
 
+    
     //-------------------------- hover handle --------------------
-    const handleOnMouseEnter=()=>{
+    const handleOnMouseEnter=useCallback(()=>{
         //set style on Hover
         setHoverStyle(onHoverStyle)
-    }   
-    const handleOnMouseLeave=()=>{
+    });
+    const handleOnMouseLeave=useCallback(()=>{
         // set style on hover
         setHoverStyle({})
-    }
+    })
     
-    const handleOnClick=()=>{
+    const handleOnClick=useCallback(()=>{
         // do funtion pass from parent
-        if(!(typeof properties.onClickedFunction==='undefined')){
+        if((typeof properties.onClickedFunction!=='undefined')){
             properties.onClickedFunction(properties.keyValue);
         }
         // setChildren that parent is selecting
-        if(!(typeof properties.setChildSelecting==='undefined')){
+        if((typeof properties.setChildSelecting!=='undefined')){
             properties.setChildSelecting(properties.keyValue)
         }
-    }
-    
+    });
+
     return(
         <div
             style={{... style,...hoverStyle,...clickedStyle}}

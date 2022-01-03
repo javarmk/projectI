@@ -3,10 +3,7 @@ import { createContext ,useState,useEffect} from "react";
 export const windowSizeContext = createContext()
 export const deviceContext=createContext()
 
-
-
 export default function System(props){
-    
     const [windownSize, setWindownSize] = useState([0,0]);
     
     let resizeWindow=()=>{

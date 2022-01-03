@@ -4,7 +4,7 @@ import './App.css'
 
 import View from './home/view';
 
-
+import Theater from './home/component/layout/theater/theater';
 
 import {BrowserRouter as Router ,Routes, Route} from 'react-router-dom';
 
@@ -13,7 +13,7 @@ function App() {
   return (
     <System>
       <div className="App">
-        <View/>
+        <View />
       </div>
     </System> 
   );
