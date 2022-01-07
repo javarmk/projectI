@@ -3,6 +3,7 @@ import TextCenter from "../../tools/textcenter";
 import Button from "../../elementevent/button";
 import { deviceContext } from "../../../system/system"; // dnag la thiet bi gi
 import { getFilms } from "../../../system/api/cinemaApi";
+import axios from "axios";
 
 export default function Theater() {
   //handle responsive
@@ -90,7 +91,7 @@ export default function Theater() {
     borderRadius: "5px",
   });
 
-  const [cinemaData, setCinemaData] = useState([
+  const [films, setFilms] = useState([
     // model
     {
       name: "Spiderman no wayhome",
@@ -112,9 +113,9 @@ export default function Theater() {
       if (!Array.isArray(data)) {
         return;
       }
-      setCinemaData(data);
+      setFilms(data);
     },
-    [cinemaData]
+    [films]
   );
 
   const filmsElement = useCallback((elementData, index) => {
@@ -216,7 +217,7 @@ export default function Theater() {
   });
   return (
     <div style={{ ...style }}>
-      {cinemaData.map((elementData, index) => {
+      {films.map((elementData, index) => {
         // alert(elementData.videoUrl);
 
         if (index == disPlay.index) {
